@@ -1,0 +1,19 @@
+CREATE DATABASE TASK2SQL
+
+USE TASK2SQL
+
+CREATE TABLE Roles (
+    ID INT PRIMARY KEY,
+    RoleName NVARCHAR(50)
+);
+
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY,
+    Username NVARCHAR(50),
+    Password NVARCHAR(50),
+    RoleID INT,
+    FOREIGN KEY (RoleID) REFERENCES Roles(ID)
+);
+SELECT Users.Username, Roles.RoleName AS Role
+FROM Users
+JOIN Roles ON Users.RoleId = Roles.Id;
